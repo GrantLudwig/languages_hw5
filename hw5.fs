@@ -4,6 +4,7 @@
     |hd::tl -> 
         if hd % 2 = 0 && hd > 0 then hd + sumEven tl else sumEven tl
 
+//Helper function for isValidTable
 let rec inList list value1 value2 =
     match list with
     |[] -> (false, false)
@@ -18,10 +19,13 @@ let rec isValidTable constraints list =
         let (name1, name2) = hd 
         if inList list name1 name2 = (true, true) then false else isValidTable tl list
 
+//tail-recursive, don't know yet
 let rec getClosestPair list =
     match list with
     |[] -> (infinity, infinity)
     |hd::tl -> 
+        let (x, y) = hd
+        sqrt(x**2 + y**2)
 
 //Test
 //----------------
@@ -50,3 +54,12 @@ let bigList = [(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1
 isValidTable bigList [1..199];; //true
 isValidTable bigList [200..5000];; //true
 isValidTable bigList [-5000..5000];; //false
+
+//getClosestPair
+//Larson
+getClosestPair [(1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0)];; //(0.5, 0.5)
+getClosestPair [(1.0, 30.0); (2.0, 20.0); (3.0, 3.0)];; //(3.0, 3.0)
+getClosestPair [(-1.0, 0.0); (1.0, 0.0); (0.0, 0.0)];; //(0.0, 0.0)
+getClosestPair [];; //(infinity, infinity)
+//Mine
+getClosestPair [(1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5)];; //(0.5, 0.5)?
