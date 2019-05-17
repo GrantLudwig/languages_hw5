@@ -20,12 +20,15 @@ let rec isValidTable constraints list =
         if inList list name1 name2 = (true, true) then false else isValidTable tl list
 
 //tail-recursive, don't know yet
-let rec getClosestPair list =
-    match list with
-    |[] -> (infinity, infinity)
-    |hd::tl -> 
-        let (x, y) = hd
-        sqrt(x**2 + y**2)
+let getClosestPair list =
+    let rec recGetClosestPair coor dis tlList
+        match tlList with
+        |[] -> coor
+        |hd::tl ->
+            let (x,y) = hd
+            let calDis = sqrt(x*x + y*y)
+            if calDis < dis then recGetClosestPair (x,y) calDis tl else recGetClosestPair (x,y) dis tl
+    recGetClosestPair (infinity, infinity) infinity list
 
 //Test
 //----------------
