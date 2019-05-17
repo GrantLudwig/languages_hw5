@@ -21,13 +21,13 @@ let rec isValidTable constraints list =
 
 //tail-recursive, don't know yet
 let getClosestPair list =
-    let rec recGetClosestPair coor dis tlList
+    let rec recGetClosestPair coor dis tlList =
         match tlList with
         |[] -> coor
         |hd::tl ->
             let (x,y) = hd
             let calDis = sqrt(x*x + y*y)
-            if calDis < dis then recGetClosestPair (x,y) calDis tl else recGetClosestPair (x,y) dis tl
+            if calDis < dis then recGetClosestPair (x,y) calDis tl else recGetClosestPair coor dis tl
     recGetClosestPair (infinity, infinity) infinity list
 
 //Test
