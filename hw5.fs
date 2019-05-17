@@ -16,3 +16,8 @@ let rec isValidTable constraints list =
     |hd::tl -> 
         let (name1, name2) = hd 
         if inList list name1 && inList list name2 then false else isValidTable tl list
+
+let rec getClosestPair list =
+    match list with
+    |[] -> (infinity, infinity)
+    |hd::tl -> 
