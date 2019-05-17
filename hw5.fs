@@ -2,7 +2,7 @@
     match list with
     |[] -> 0
     |hd::tl -> 
-        if hd % 2 = 0 then hd + sumEven tl else sumEven tl
+        if hd % 2 = 0 && hd > 0 then hd + sumEven tl else sumEven tl
 
 let rec inList list value1 value2 =
     match list with
@@ -24,16 +24,29 @@ let rec getClosestPair list =
     |hd::tl -> 
 
 //Test
+//----------------
 //TODO DELETE!!!!!
+//----------------
+
+//sumEven
+//Larson
+sumEven [1; 2; 1; 2; 1; 2];; //6
+sumEven [1..10];; //30
+sumEven [1; 3; 5; 7; 9];; //0
+//Mine
+sumEven [0; 1];; //0
+sumEven [-2];; //0
+sumEven [-4; -1; -4; -3; 2; 0; 1; 3; 5; 6; 7; 8; 10; 11; 2; -1; 0; -90; -4; 5];; //28
 
 //isValid
 //Larson
 let x = [("Eric", "Mark"); ("Anna", "Maya"); ("Beth", "Hope")];;
-isValidTable x ["Eric"; "Anna"; "Beth"];;
-isValidTable x ["Greg"; "Eric"; "John"; "Anna"; "Beth"];;
-isValidTable x ["Hope"; "Eric"; "Anna"; "Beth"];;
-isValidTable x ["Mark"; "Beth"; "Eric"; "Anna"];;
+isValidTable x ["Eric"; "Anna"; "Beth"];; //true
+isValidTable x ["Greg"; "Eric"; "John"; "Anna"; "Beth"];; //true
+isValidTable x ["Hope"; "Eric"; "Anna"; "Beth"];; //false
+isValidTable x ["Mark"; "Beth"; "Eric"; "Anna"];; //false
 //Mine
 let bigList = [(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200);(1, 200)];;
-isValidTable bigList [1..199];;
-isValidTable bigList [200..5000];;
+isValidTable bigList [1..199];; //true
+isValidTable bigList [200..5000];; //true
+isValidTable bigList [-5000..5000];; //false
