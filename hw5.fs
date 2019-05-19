@@ -1,8 +1,11 @@
-﻿let rec sumEven list =
-    match list with
-    |[] -> 0
-    |hd::tl -> 
-        if hd % 2 = 0 && hd > 0 then hd + sumEven tl else sumEven tl
+﻿let sumEven list =
+    let rec recSumEven total recList = 
+        match recList with
+        |[] -> total
+        |hd::tl ->
+            if hd % 2 = 0 && hd > 0 then recSumEven (total + hd) tl else recSumEven total tl
+    recSumEven 0 list
+        
 
 //Helper function for isValidTable
 let rec inList list value1 value2 =
@@ -20,8 +23,8 @@ let rec isValidTable constraints list =
         if inList list name1 name2 = (true, true) then false else isValidTable tl list
 
 let getClosestPair list =
-    let rec recGetClosestPair coor dis tlList =
-        match tlList with
+    let rec recGetClosestPair coor dis recList =
+        match recList with
         |[] -> coor
         |hd::tl ->
             let (x,y) = hd
