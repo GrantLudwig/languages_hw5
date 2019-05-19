@@ -19,7 +19,6 @@ let rec isValidTable constraints list =
         let (name1, name2) = hd 
         if inList list name1 name2 = (true, true) then false else isValidTable tl list
 
-//tail-recursive, don't know yet
 let getClosestPair list =
     let rec recGetClosestPair coor dis tlList =
         match tlList with
@@ -65,4 +64,5 @@ getClosestPair [(1.0, 30.0); (2.0, 20.0); (3.0, 3.0)];; //(3.0, 3.0)
 getClosestPair [(-1.0, 0.0); (1.0, 0.0); (0.0, 0.0)];; //(0.0, 0.0)
 getClosestPair [];; //(infinity, infinity)
 //Mine
-getClosestPair [(1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5)];; //(0.5, 0.5)?
+getClosestPair [(1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5)];; //(0.5, 0.5)
+getClosestPair [(1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (0.0, 0.0)];; //(0.0, 0.0)
