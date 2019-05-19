@@ -3,7 +3,7 @@
         match recList with
         |[] -> total
         |hd::tl ->
-            if hd % 2 = 0 && hd > 0 then recSumEven (total + hd) tl else recSumEven total tl
+            if hd % 2 = 0 then recSumEven (total + hd) tl else recSumEven total tl
     recSumEven 0 list
         
 
@@ -44,8 +44,8 @@ sumEven [1..10];; //30
 sumEven [1; 3; 5; 7; 9];; //0
 //Mine
 sumEven [0; 1];; //0
-sumEven [-2];; //0
-sumEven [-4; -1; -4; -3; 2; 0; 1; 3; 5; 6; 7; 8; 10; 11; 2; -1; 0; -90; -4; 5];; //28
+sumEven [-2];; //-2
+sumEven [-4; -1; -4; -3; 2; 0; 1; 3; 5; 6; 7; 8; 10; 11; 2; -1; 0; -90; -4; 5];; //-74
 
 //isValid
 //Larson
@@ -69,3 +69,4 @@ getClosestPair [];; //(infinity, infinity)
 //Mine
 getClosestPair [(1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5)];; //(0.5, 0.5)
 getClosestPair [(1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (0.0, 0.0)];; //(0.0, 0.0)
+getClosestPair [(1.0, 1.0); (2.0, 2.0); (0.5, 0.5); (4.0, 4.0); (-0.5, -0.5); (-0.2, -0.2)];; //(-0.2, -0.2)
